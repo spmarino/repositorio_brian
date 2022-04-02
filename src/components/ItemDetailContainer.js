@@ -1,9 +1,10 @@
 import React from 'react'
-import { useState, useEffect } from "react"
+import {useContext, useState, useEffect } from "react"
 import { toast } from 'react-toastify';
 import ItemDetail from './ItemDetail';
 import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
+import { cartContext } from './CartContext'; 
 
 
 const ItemDetailContainer = () => {
@@ -79,9 +80,6 @@ const ItemDetailContainer = () => {
         });
 
         promesa
-            // .then((respuestaDeLaApi) => {
-            //     setProductos(respuestaDeLaApi.find((product) => product.id === +id))
-            // })
             .then((res) => {
                 setLoading(true);
                 if (id) {
